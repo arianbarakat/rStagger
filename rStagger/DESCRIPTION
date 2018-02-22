@@ -7,6 +7,6 @@ Date: 2018-02-22
 Author: Arian Barakat <arianbarakat@gmail.com>
 Maintainer: Arian Barakat <arianbarakat@gmail.com>
 Description: An interface for Stagger (NLP) in R.
-License: -
 LazyData: true
+License: MIT
 RoxygenNote: 6.0.1

@@ -4,10 +4,12 @@
 \alias{callStagger}
 \title{callStagger}
 \usage{
-callStagger(textFile, jarFile = NULL, modelFile = NULL)
+callStagger(textFile, outFile = NULL, jarFile = NULL, modelFile = NULL)
 }
 \arguments{
 \item{textFile}{String or path to .txt file. If string, the string will be written to a temporary file that is deleted once the algorithm finishes}
+
+\item{outFile}{Path to outfile. Default NULL}
 
 \item{jarFile}{Path to .jar (Stagger) file. Default NULL (uses included .jar file)}
 

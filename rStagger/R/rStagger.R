@@ -1,16 +1,18 @@
 #' @title callStagger
-#'
-#' @description A function to call Stagger (NLP) from R
 #' 
+#' @description A function to call Stagger (NLP) from R
 #' @import magrittr
-#'
+#' 
 #' @param textFile String or path to .txt file. If string, the string will be written to a temporary file that is deleted once the algorithm finishes
+#' @param outFile Path to outfile. Default NULL
 #' @param jarFile Path to .jar (Stagger) file. Default NULL (uses included .jar file)
 #' @param modelFile Path to .bin modelfile (i.e. the Swedish file). Default NULL (uses included modelfile)
 #' @return Returns a dataframe with class c("data.frame", "rStagger")
+#' 
+#' @example \dontrun{callStagger(textFile = "Hej, mitt namn är Kung Julian)}
 #'
 #' @export
-callStagger <- function(textFile, jarFile = NULL, modelFile = NULL){
+callStagger <- function(textFile, outFile = NULL, jarFile = NULL, modelFile = NULL){
   require(magrittr)
   
   if(is.null(jarFile)){
@@ -19,6 +21,11 @@ callStagger <- function(textFile, jarFile = NULL, modelFile = NULL){
   
   if(is.null(modelFile)){
     modelFile <- system.file("bin", "swedish.bin", package = "rStagger")
+    
+    if(identical(modelFile, "")){
+      unpackModelFile()
+      modelFile <- system.file("bin", "swedish.bin", package = "rStagger")
+    }
   }
   
   if(inherits(textFile, "character") && !file.exists(textFile)){
@@ -37,12 +44,29 @@ callStagger <- function(textFile, jarFile = NULL, modelFile = NULL){
   callString <- paste("java -jar", jarFile,"-modelfile", modelFile,"-tag",textFile)
   callResult <- system(callString, intern = TRUE) %>% paste0(collapse = "\n")
   
+  if(!is.null(outFile)){
+    write(callResult, file = outFile)
+  }
   
   return(stringToDF(callResult))
 }
 
-#' @title 
+
+#' @title unpackModelFile
+#'
+#' @description Utility function to unpack modelfile (Swedish model)
+#' 
+#' @return Unpacked swedish.bin modelfile
+unpackModelFile <- function(){
+  file.bz2 <- system.file("bin","swedish.bin.bz2", package = "rStagger")
+  message("Unpacking swedish.bin.bz2 ...")
+  system(paste("bzip2 -d", file.bz2))
+  message("Done")
+}
+
+#' @title stringToDF
 #' @description Utility function
+#' 
 #' @param string A string file
 #' @param ... Other argument to pass to internal calls (read.delim())
 #' @export
