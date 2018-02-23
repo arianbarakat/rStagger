@@ -19,5 +19,5 @@ callStagger(textFile, outFile = NULL, jarFile = NULL, modelFile = NULL)
 Returns a dataframe with class c("data.frame", "rStagger")
 }
 \description{
-A function to call Stagger (NLP) from R
+A function to call Stagger (NLP) from R.  Works currently only on a UNIX system with Java installed.
 }

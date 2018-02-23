@@ -1,12 +1,12 @@
 Package: rStagger
 Type: Package
 Title: A wrapper to call Stagger (Java) in R
-Version: 1.0
+Version: 0.1
 Depends: R, dplyr (>= 0.7.4), magrittr (>= 1.5)
 Date: 2018-02-22
 Author: Arian Barakat <arianbarakat@gmail.com>
 Maintainer: Arian Barakat <arianbarakat@gmail.com>
-Description: An interface for Stagger (NLP) in R.
+Description: An interface for Stagger (NLP) in R. Works currently only on a UNIX system with Java installed.
 LazyData: true
 License: MIT
 RoxygenNote: 6.0.1

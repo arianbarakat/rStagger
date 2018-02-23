@@ -8,27 +8,15 @@
 \description{
 \packageDescription{rStagger}
 }
-\details{
-
-The DESCRIPTION file:
-\packageDESCRIPTION{rStagger}
-\packageIndices{rStagger}
-~~ An overview of how to use the package, including the most important functions ~~
-}
 \author{
 \packageAuthor{rStagger}
 
 Maintainer: \packageMaintainer{rStagger}
 }
 \references{
-~~ Literature or other references for background information ~~
+Stagger: \href{https://www.ling.su.se/english/nlp/tools/stagger}{https://www.ling.su.se/english/nlp/tools/stagger}  
+  
+
+GNU Parallel: \href{https://www.gnu.org/software/parallel/}{https://www.gnu.org/software/parallel/}
 }
-~~ Optionally other standard keywords, one per line, from file KEYWORDS in the R documentation directory ~~
-\keyword{ package }
-\seealso{
-~~ Optional links to other man pages, e.g. ~~
-~~ \code{\link[<pkg>:<pkg>-package]{<pkg>}} ~~
-}
-\examples{
-~~ simple examples of the most important functions ~~
-}
+\keyword{NLP, Stagger, }
