@@ -21,11 +21,16 @@ devtools::install_github("arianbarakat/rStagger", subdir = "rStagger")
 ```r
 library(rStagger)
 
-callStagger(textFile = "Hej, mitt namn är Kung Julian)
+parsed <- callStagger(textFile = "Hej, mitt namn är Kung Julian)
+
+extract_enitity(parsed, type = "person")
 
 # Or in parallel.. 
 
-callStagger.parallel(files = c("test1.txt", "test2.txt"), file.dir = "~/Desktop/", "~/Desktop/")
+callStagger.parallel(files = c("test1.txt", "test2.txt"), file.dir = "~/Desktop/", out.dir =  "~/Desktop/")
+
+readParsed(file = "~/Desktop/staggerOut_test1.txt")
+
 ```
 
 ## Details
