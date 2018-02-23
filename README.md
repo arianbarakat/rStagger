@@ -21,7 +21,7 @@ devtools::install_github("arianbarakat/rStagger", subdir = "rStagger")
 ```r
 library(rStagger)
 
-parsed <- callStagger(textFile = "Hej, mitt namn är Kung Julian)
+parsed <- callStagger(textFile = "Hej, mitt namn är Kung Julian")
 
 extract_enitity(parsed, type = "person")
 
