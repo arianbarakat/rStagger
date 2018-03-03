@@ -5,7 +5,7 @@
 \title{extract_entity}
 \usage{
 extract_entity(object, type = c("all", "person", "place", "inst", "product",
-  "myth", "work", "animal", "other"))
+  "myth", "work", "animal", "other", "event"))
 }
 \arguments{
 \item{object}{An object of class rStagger}
@@ -16,5 +16,15 @@ extract_entity(object, type = c("all", "person", "place", "inst", "product",
 Returns a string of entities (the chosen entity type)
 }
 \description{
-A function to extract entities from a rStagger object
+A function to extract entities from a rStagger object.
+Entities: 
+- person
+- animal
+- myth
+- place 
+- inst 
+- product
+- work 
+- event
+- other
 }

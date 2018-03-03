@@ -35,3 +35,6 @@ vignettes/*.pdf
 
 # Project files
 *.Rproj
+
+# R-Scripts
+R/not_included.R

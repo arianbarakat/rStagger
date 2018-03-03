@@ -13,7 +13,6 @@ devtools::install_github("arianbarakat/rStagger", subdir = "rStagger")
 
 * R
 * Java
-* GNU Parallel (Optional, used in the parallel version)
 
 
 ## Usage
@@ -21,15 +20,20 @@ devtools::install_github("arianbarakat/rStagger", subdir = "rStagger")
 ```r
 library(rStagger)
 
-parsed <- callStagger(textFile = "Hej, mitt namn är Kung Julian")
+parsed <- callStagger(textFile = "Hej, mitt namn är Kung Julian",
+                      outFile = "~/Desktop/rStagger_KungJulian.conll")
 
 extract_enitity(parsed, type = "person")
 
 # Or in parallel.. 
 
-callStagger.parallel(files = c("test1.txt", "test2.txt"), file.dir = "~/Desktop/", out.dir =  "~/Desktop/")
+nrCores <- parallel::detectCores()
+parsed_corpus <- parallel::mclapply(c("~/Desktop/test1.txt", "~/Desktop/test2.txt"), mc.cores = nrCores)
 
-readParsed(file = "~/Desktop/staggerOut_test1.txt")
+
+# To read an already parsed object
+
+readParsed(file = "~/Desktop/rStagger_KungJulian.conll")
 
 ```
 
