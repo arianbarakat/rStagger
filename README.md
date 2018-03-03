@@ -55,7 +55,9 @@ extract_enitity(parsed, type = "person")
 # Or in parallel.. 
 
 nrCores <- parallel::detectCores()
-parsed_corpus <- parallel::mclapply(c("~/Desktop/test1.txt", "~/Desktop/test2.txt"), mc.cores = nrCores)
+parsed_corpus <- parallel::mclapply(c("~/Desktop/test1.txt", "~/Desktop/test2.txt"), 
+                                    FUN = callStagger,
+                                    mc.cores = nrCores)
 
 
 # To read an already parsed object
