@@ -11,10 +11,6 @@
 #' 
 #' @export
 readParsed <- function(file, ...){
-  colnames <- c("Index", "Form", "Lemma","POS.coarse","POS.fine",
-                "Morphological.features", "Head", "Dependency.type", "Chunk.tag", "Chunk.type", 
-                "NE.tag", "NE.type","Token.ID")
-  df <- read.delim(file,col.names = colnames, header = FALSE, ...)
-  class(df) <- c(class(df), "rStagger")
+  df <- .stringToDF(input = file, internal = FALSE, ...)
   return(df)
 }

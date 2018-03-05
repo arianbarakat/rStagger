@@ -12,7 +12,7 @@
 #' @examples \donttest{callStagger(textFile = "Hej, mitt namn är Kung Julian)}
 #'
 #' @export
-callStagger <- function(textFile, outFile = NULL, jarFile = NULL, modelFile = NULL){
+callStagger <- function(textFile, outFile = NULL, jarFile = NULL, modelFile = NULL, suppress.output = FALSE){
   require(magrittr)
   
   if(is.null(jarFile)){
@@ -46,9 +46,13 @@ callStagger <- function(textFile, outFile = NULL, jarFile = NULL, modelFile = NU
   
   if(!is.null(outFile)){
     write(callResult, file = outFile)
+    message(paste(Sys.time(),"| Result written to:", outFile))
   }
   
-  return(.stringToDF(callResult))
+  if(!suppress.output){
+    return(.stringToDF(callResult))
+  }
+  
 }
 
 

@@ -6,11 +6,15 @@
   message("Done")
 }
 
-.stringToDF <- function(string, ...){
-  colnames <- c("Index", "Token", "Lemma","POS.coarse","POS.fine",
-                "Morphological.features", "Head", "Dependency", "Chunk.tag", "Chunk.type", 
-                "NE.tag", "NE.type","TokenID")
-  df <- read.delim(textConnection(string),col.names = colnames, header = FALSE, ...)
+.stringToDF <- function(input, internal = TRUE, ...){
+  colnames <- c("Index", "Form", "Lemma","POS.coarse","POS.fine",
+                "Morphological.features", "Head", "Dependency.type", "Chunk.tag", "Chunk.type", 
+                "NE.tag", "NE.type","Token.ID")
+  if(internal){
+    input <- textConnection(input)
+  }
+  
+  df <- read.delim(input,col.names = colnames, stringsAsFactors = FALSE, header = FALSE, ...)
   class(df) <- c(class(df), "rStagger")
   return(df)
 }
