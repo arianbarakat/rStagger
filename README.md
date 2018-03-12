@@ -81,7 +81,7 @@ extract_features(test, "Readability")
 |MWLC | 3.833333|
 
 ```r
-extract_features(test, "Readability")
+extract_features(test, "Stylometry")
 
 ```
 
