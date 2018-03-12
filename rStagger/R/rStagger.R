@@ -7,6 +7,7 @@
 #' @param outFile Path to outfile. Default NULL
 #' @param jarFile Path to .jar (Stagger) file. Default NULL (uses included .jar file)
 #' @param modelFile Path to .bin modelfile (i.e. the Swedish file). Default NULL (uses included modelfile)
+#' @param suppress.output A logical. Suppress output to the R environment, useful when writing to file in Batches
 #' @return Returns a dataframe with class c("data.frame", "rStagger")
 #' 
 #' @examples \donttest{callStagger(textFile = "Hej, mitt namn är Kung Julian)}
@@ -14,7 +15,8 @@
 #' @export
 callStagger <- function(textFile, outFile = NULL, jarFile = NULL, modelFile = NULL, suppress.output = FALSE){
   require(magrittr)
-  
+  checkmate::assertOS(c("mac", "linux"))
+
   if(is.null(jarFile)){
     jarFile <- system.file("java", "stagger.jar", package = "rStagger")
   }

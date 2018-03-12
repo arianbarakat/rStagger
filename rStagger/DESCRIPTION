@@ -2,7 +2,8 @@ Package: rStagger
 Type: Package
 Title: A wrapper to call Stagger (Java) in R
 Version: 0.1
-Depends: R, dplyr (>= 0.7.4), magrittr (>= 1.5), lazyeval
+Imports: dplyr (>= 0.7.4), magrittr (>= 1.5), lazyeval, checkmate, stats, utils
+Depends: dplyr (>= 0.7.4), magrittr (>= 1.5), lazyeval, checkmate, stats, utils
 Date: 2018-02-22
 Author: Arian Barakat <arianbarakat@gmail.com>
 Maintainer: Arian Barakat <arianbarakat@gmail.com>

@@ -15,6 +15,8 @@ callStagger(textFile, outFile = NULL, jarFile = NULL, modelFile = NULL,
 \item{jarFile}{Path to .jar (Stagger) file. Default NULL (uses included .jar file)}
 
 \item{modelFile}{Path to .bin modelfile (i.e. the Swedish file). Default NULL (uses included modelfile)}
+
+\item{suppress.output}{A logical. Suppress output to the R environment, useful when writing to file in Batches}
 }
 \value{
 Returns a dataframe with class c("data.frame", "rStagger")

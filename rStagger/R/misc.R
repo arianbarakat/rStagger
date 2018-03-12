@@ -15,6 +15,7 @@
   }
   
   df <- read.delim(input,col.names = colnames, stringsAsFactors = FALSE, header = FALSE, ...)
+  df$Sentence.ID <- vapply(strsplit(df$Token.ID, ":"), function(x){x[2]}, FUN.VALUE = character(1))
   class(df) <- c(class(df), "rStagger")
   return(df)
 }
